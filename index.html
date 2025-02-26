@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,7 @@
 
     <title>Lustfulhaven MGMT</title>
     <style>
-    .modal {
+        .modal {
             position: fixed;
             top: 0;
             left: 0;
@@ -18,6 +19,7 @@
             align-items: center;
             justify-content: center;
         }
+
         .modal-content {
             background: white;
             width: 400px;
@@ -31,10 +33,13 @@
             align-items: center;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
         }
+
         .hidden {
             display: none;
         }
-        .yes-btn, .no-btn {
+
+        .yes-btn,
+        .no-btn {
             margin: 10px;
             padding: 12px 25px;
             border: none;
@@ -45,17 +50,21 @@
             align-items: center;
             gap: 8px;
         }
+
         .yes-btn {
             background: green;
             color: white;
         }
+
         .no-btn {
             background: red;
             color: white;
         }
+
         .icon {
             font-size: 20px;
         }
+
         body {
             font-family: Arial, sans-serif;
         }
@@ -159,7 +168,8 @@
             justify-content: center;
         }
 
-        .about-right h1, .mission-section h2 {
+        .about-right h1,
+        .mission-section h2 {
             font-size: 36px;
             font-weight: bold;
         }
@@ -175,7 +185,7 @@
             margin-top: 20px;
         }
 
-     
+
 
         .mission-section p {
             font-size: 14px;
@@ -419,7 +429,45 @@
         /* Media Queries for Responsiveness */
         @media (max-width: 768px) {
 
-            
+            section {
+                position: relative;
+                /* Prevents overlapping */
+                padding-top: 80px;
+                /* Adds space above each section */
+                padding-bottom: 80px;
+                /* Adds space below each section */
+            }
+
+            /* Hero Section */
+            .hero-section {
+                padding-top: 100px;
+                padding-bottom: 100px;
+            }
+
+            /* About Section */
+            .about-section {
+                padding-top: 100px;
+                padding-bottom: 100px;
+            }
+
+
+            /* Services Section */
+            .careers-section,
+            .about-section,
+            .services-section {
+                height: min-content;
+                padding: 10px;
+
+            }
+
+            /* Footer */
+            .footer {
+                position: relative;
+                padding-top: 80px;
+                padding-bottom: 50px;
+            }
+
+
             .hero-content h1 {
                 font-size: 40px;
             }
@@ -444,7 +492,10 @@
                 text-align: center;
             }
 
-            .about-right h1, .mission-section h2, .careers-right h1, .services-container h2{
+            .about-right h1,
+            .mission-section h2,
+            .careers-right h1,
+            .services-container h2 {
                 font-size: 24px;
             }
 
@@ -457,7 +508,7 @@
                 /* Adjust careers heading font size */
             }
 
-    
+
 
             .careers-right p {
                 font-size: 16px;
@@ -505,14 +556,12 @@
                 margin-top: 20px;
             }
 
-            section{
-                margin-top: 200px;
-                padding: 10px;
-            }
+
 
         }
     </style>
 </head>
+
 <body>
     <div id="ageModal" class="modal">
         <div class="modal-content">
@@ -522,7 +571,7 @@
             <button class="no-btn" onclick="verifyAge(false)"><i class="fas fa-times icon"></i> No</button>
         </div>
     </div>
-    
+
     <div id="content" class="hidden">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container">
@@ -548,15 +597,18 @@
                     <h1>WELCOME<br>TO<br>LUSTFULHAVEN MGMT</h1>
                 </div>
                 <div style="max-width: 1098px; margin: auto; text-align: center;">
-                    <p>Welcome to LustfulhavenMGMT, where we specialize in managing and partnering with models from around
-                        the globe. Our primary focus is on 18+ content, providing comprehensive support and management for
-                        models on platforms like OnlyFans and other similar sites. We operate 24/7 chat services to ensure
+                    <p>Welcome to LustfulhavenMGMT, where we specialize in managing and partnering with models from
+                        around
+                        the globe. Our primary focus is on 18+ content, providing comprehensive support and management
+                        for
+                        models on platforms like OnlyFans and other similar sites. We operate 24/7 chat services to
+                        ensure
                         seamless communication and engagement with our models and their audiences.</p>
                 </div>
                 <a href="#" class="hero-button">APPLY FOR MANAGEMENT →</a>
             </div>
         </div>
-    
+
         <section class="about-section">
             <div class="about-container">
                 <!-- Left Div: Logo -->
@@ -566,27 +618,34 @@
                 <!-- Right Div: About Us -->
                 <div class="about-right">
                     <h1>ABOUT US</h1>
-                    <p>Welcome to LustfulhavenMGMT, where we specialize in managing and partnering with models from around
-                        the globe. Our primary focus is on 18+ content, providing comprehensive support and management for
-                        models on platforms like OnlyFans and other similar sites. We operate 24/7 chat services to ensure
+                    <p>Welcome to LustfulhavenMGMT, where we specialize in managing and partnering with models from
+                        around
+                        the globe. Our primary focus is on 18+ content, providing comprehensive support and management
+                        for
+                        models on platforms like OnlyFans and other similar sites. We operate 24/7 chat services to
+                        ensure
                         seamless communication and engagement with our models and their audiences.<br><br>
-                        At LustfulhavenMGMT, we believe in empowering our models through a robust referral program designed
-                        to attract new talent and expand our community. Join us to discover more about how we can help you
+                        At LustfulhavenMGMT, we believe in empowering our models through a robust referral program
+                        designed
+                        to attract new talent and expand our community. Join us to discover more about how we can help
+                        you
                         thrive in the adult content industry.</p>
                 </div>
             </div>
-    
+
             <!-- Mission and Vision Section -->
             <div class="mission-section">
                 <h2>MISSION AND VISION</h2>
-                <p>The primary mission of LustfulhavenMGMT is to create a safe and inclusive environment for adult content
+                <p>The primary mission of LustfulhavenMGMT is to create a safe and inclusive environment for adult
+                    content
                     creators. The platform envisions a space where creators can express their artistry without fear of
-                    censorship or exploitation. By prioritizing the well-being and success of its members, LustfulhavenMGMT
+                    censorship or exploitation. By prioritizing the well-being and success of its members,
+                    LustfulhavenMGMT
                     seeks to redefine the adult entertainment landscape.</p>
             </div>
         </section>
-    
-        <section class="careers-section">
+
+        <section style="height: min-content;" class="careers-section">
             <div class="careers-container">
                 <div class="careers-left">
                     <h2>TAKE THE NEXT STEP</h2>
@@ -598,15 +657,17 @@
                     <hr class="light-grey-line">
                     <h1 style="text-transform: uppercase;">Apply For Our OnlyFans Management Services</h1>
                     <hr class="light-grey-line">
-                    <p>Submit your OnlyFans management talent application today! Our expert team will carefully review your
+                    <p>Submit your OnlyFans management talent application today! Our expert team will carefully review
+                        your
                         application and reach out to schedule a call. Together, we’ll discuss your goals and create a
-                        personalized strategy to help you maximize your earnings and achieve success. Don’t wait—start your
+                        personalized strategy to help you maximize your earnings and achieve success. Don’t wait—start
+                        your
                         journey with us now!</p>
                     <button class="careers-button">APPLY NOW</button>
                 </div>
             </div>
         </section>
-    
+
         <!-- Services Section -->
         <section class="services-section">
             <div class="services-inside">
@@ -618,13 +679,15 @@
                     <div class="service">
                         <h4>Content Management</h4>
                         <hr class="service-line">
-                        <p>Tools for organizing and distributing content across multiple platforms.<br>Assistance with video
+                        <p>Tools for organizing and distributing content across multiple platforms.<br>Assistance with
+                            video
                             editing, graphic design, and branding.</p>
                     </div>
                     <div class="service">
                         <h4>Marketing and Promotion</h4>
                         <hr class="service-line">
-                        <p>Strategies for increasing visibility and attracting a larger audience.<br>Social media management
+                        <p>Strategies for increasing visibility and attracting a larger audience.<br>Social media
+                            management
                             and advertising support.</p>
                     </div>
                     <div class="service">
@@ -636,13 +699,15 @@
                     <div class="service">
                         <h4>Legal Support</h4>
                         <hr class="service-line">
-                        <p>Resources for understanding copyright, contracts, and industry regulations.<br>Access to legal
+                        <p>Resources for understanding copyright, contracts, and industry regulations.<br>Access to
+                            legal
                             professionals specializing in adult entertainment law.</p>
                     </div>
                     <div class="service">
                         <h4>Community Building</h4>
                         <hr class="service-line">
-                        <p>Opportunities for networking and collaboration among creators.<br>Forums and events to foster a
+                        <p>Opportunities for networking and collaboration among creators.<br>Forums and events to foster
+                            a
                             sense of community and support.</p>
                     </div>
                 </div>
@@ -653,16 +718,16 @@
                 <div class="logo-footer">
                     <img src="logo.svg" alt="Logo" class="footer-logo">
                 </div>
-        
+
                 <div class="footer-intro">
                     <p class="footer-intro-description">We are LustfulhavenMGMT, your go-to platform for adult content
                         management. Join our community and get the support you need to succeed in the industry.</p>
                 </div>
-        
+
                 <div class="contact footer-contact">
                     <p class="contact-email"><strong>Email:</strong> support@lustfulhavenmgmt.com</p>
                     <p class="contact-phone"><strong>Phone:</strong> +123 456 7890</p>
-        
+
                     <div class="social-icons">
                         <a href="https://www.tiktok.com/@lustfulhaven" class="social-icon" target="_blank">
                             <i class="fa-brands fa-tiktok"></i>
@@ -681,16 +746,16 @@
                         </a>
                     </div>
                 </div>
-        
+
                 <div class="work-with-us">
                     <button class="apply-button">APPLY NOW!</button>
                 </div>
             </div>
         </section>
-        
-        
+
+
     </div>
-    
+
     <script>
         function verifyAge(isVerified) {
             if (isVerified) {
@@ -710,8 +775,9 @@
         };
     </script>
 
-       <!-- Font Awesome CDN for Icons -->
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
