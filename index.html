@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Lustfulhaven MGMT</title>
+    <style>
+    .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background: white;
+            width: 400px;
+            height: 250px;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .hidden {
+            display: none;
+        }
+        .yes-btn, .no-btn {
+            margin: 10px;
+            padding: 12px 25px;
+            border: none;
+            cursor: pointer;
+            border-radius: 25px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .yes-btn {
+            background: green;
+            color: white;
+        }
+        .no-btn {
+            background: red;
+            color: white;
+        }
+        .icon {
+            font-size: 20px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: black;
+        }
+
+        .navbar a {
+            color: white !important;
+            text-transform: uppercase;
+            font-weight: 800;
+            font-size: 15px;
+            font-family: "Montserrat", Sans-serif;
+        }
+
+        .hero-section {
+            position: relative;
+            background: url('https://media.admiddleeast.com/photos/66696ac8dd1866616c1c8580/16:9/w_2992,h_1683,c_limit/GettyImages-1340760386.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -2.5px;
+            text-shadow: 0px 0px 100px rgba(0, 0, 0, 0.97);
+            line-height: 1.1;
+        }
+
+        .hero-button {
+            font-family: "Montserrat", Sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 60px;
+            text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);
+            fill: #0F0F0F;
+            color: #0F0F0F;
+            background-color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .hero-button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .about-section {
+            height: 100vh;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .about-container {
+            max-width: 1048px;
+            width: 100%;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .about-left {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-right {
+            flex: 1;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-right h1, .mission-section h2 {
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .about-right p {
+            font-size: 16px;
+        }
+
+        .mission-section {
+            max-width: 1048px;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+     
+
+        .mission-section p {
+            font-size: 14px;
+        }
+
+        .careers-section {
+            background-color: black;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .careers-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1048px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .careers-left {
+            flex: 1;
+            color: white;
+            text-align: left;
+            padding: 20px;
+        }
+
+        .careers-left h2 {
+            font-size: 70px;
+            font-weight: 800;
+        }
+
+        .careers-left p {
+            font-size: 24px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+
+        .careers-right {
+            flex: 1;
+            background-color: white;
+            color: black;
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        .careers-right h3 {
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .light-grey-line {
+            border: 1px solid #d3d3d3;
+            margin: 20px 0;
+        }
+
+        .white-line {
+            width: 90%;
+            height: 2px;
+            background-color: white;
+            margin: 20px 0;
+        }
+
+        .careers-right h1 {
+            font-size: 32px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .careers-right p {
+            font-size: 19px;
+            font-weight: 500;
+            text-transform: capitalize;
+            text-align: center;
+            color: #000000;
+        }
+
+        .careers-button {
+            font-size: 20px;
+            font-weight: 800;
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            margin-top: 20px;
+        }
+
+        .careers-button:hover {
+            background-color: #333;
+        }
+
+        .services-section {
+            padding: 40px 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .services-inside {
+            max-width: 1098px;
+            margin: auto;
+        }
+
+        .services-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .services-container h2 {
+            font-weight: 800;
+        }
+
+        .services-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .service {
+            flex: 1 1 200px;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .service h4 {
+            font-size: 28px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .service hr.service-line {
+            border: 2px solid #2CB9F2;
+            margin: 10px auto;
+            max-width: 400px;
+        }
+
+        .service p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .custom-footer {
+            background-color: white;
+            color: black;
+            padding: 40px 0;
+        }
+
+        .footer-container {
+            max-width: 1048px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            text-align: left;
+            flex-wrap: wrap;
+        }
+
+        .logo-footer {
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 20px;
+        }
+
+        .footer-logo {
+            max-width: 150px;
+            height: auto;
+        }
+
+        .footer-intro {
+            flex: 1;
+            min-width: 200px;
+            margin: 0 20px;
+        }
+
+        .footer-intro-description {
+            margin: 0;
+        }
+
+        .footer-contact {
+            flex: 1;
+            min-width: 200px;
+            margin: 0 20px;
+        }
+
+        .contact-email,
+        .contact-phone {
+            margin: 0;
+            padding-bottom: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .social-icon {
+            color: black;
+            margin-right: 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .work-with-us {
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 20px;
+        }
+
+        .apply-button {
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            padding: 12px 25px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .apply-button:hover {
+            background-color: #444;
+        }
+
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 40px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            .hero-button {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+
+            .about-section {
+                margin: 20px;
+            }
+
+            .about-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-left,
+            .about-right {
+                width: 100%;
+                text-align: center;
+            }
+
+            .about-right h1, .mission-section h2, .careers-right h1, .services-container h2{
+                font-size: 24px;
+            }
+
+            .about-right p {
+                font-size: 14px;
+            }
+
+            .careers-left h2 {
+                font-size: 36px;
+                /* Adjust careers heading font size */
+            }
+
+    
+
+            .careers-right p {
+                font-size: 16px;
+                /* Adjust careers right paragraph font size */
+            }
+
+            .services-container p {
+                font-size: 12px;
+                /* Adjust services paragraph font size */
+            }
+
+            .service p {
+                font-size: 12px;
+                white-space: pre-line;
+
+            }
+
+            .service h4 {
+                font-size: 24px;
+                white-space: pre-line;
+
+            }
+
+            .services-inside {
+                padding: 0 20px;
+            }
+
+            .careers-container {
+                flex-direction: column;
+                /* Stack divs on top of each other */
+                align-items: center;
+                /* Center align items */
+            }
+
+            .careers-left,
+            .careers-right {
+                width: 100%;
+                /* Full width for stacked items */
+                padding: 10px;
+                /* Adjust padding for mobile */
+            }
+
+            .careers-left h2,
+            .careers-right h1 {
+                text-align: center;
+                /* Center headings for mobile */
+            }
+
+            .apply-button {
+                margin-top: 20px;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div id="ageModal" class="modal">
+        <div class="modal-content">
+            <h2>Are you 18+?</h2>
+            <p>You must be 18 or older to access this content.</p>
+            <button class="yes-btn" onclick="verifyAge(true)"><i class="fas fa-check icon"></i> Yes</button>
+            <button class="no-btn" onclick="verifyAge(false)"><i class="fas fa-times icon"></i> No</button>
+        </div>
+    </div>
+    
+    <div id="content" class="hidden">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">LUSTFULHAVEN MGMT</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#">SERVICES</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">ABOUT US</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">CAREERS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">CONTACT US</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="hero-section">
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <div style="max-width: 1098px; margin: auto; text-align: center;">
+                    <h1>WELCOME<br>TO<br>LUSTFULHAVEN MGMT</h1>
+                </div>
+                <div style="max-width: 1098px; margin: auto; text-align: center;">
+                    <p>Welcome to LustfulhavenMGMT, where we specialize in managing and partnering with models from around
+                        the globe. Our primary focus is on 18+ content, providing comprehensive support and management for
+                        models on platforms like OnlyFans and other similar sites. We operate 24/7 chat services to ensure
+                        seamless communication and engagement with our models and their audiences.</p>
+                </div>
+                <a href="#" class="hero-button">APPLY FOR MANAGEMENT →</a>
+            </div>
+        </div>
+    
+        <section class="about-section">
+            <div class="about-container">
+                <!-- Left Div: Logo -->
+                <div class="about-left">
+                    <img src="logo.svg" alt="Logo" style="max-width: 100%; height: auto;">
+                </div>
+                <!-- Right Div: About Us -->
+                <div class="about-right">
+                    <h1>ABOUT US</h1>
+                    <p>Welcome to LustfulhavenMGMT, where we specialize in managing and partnering with models from around
+                        the globe. Our primary focus is on 18+ content, providing comprehensive support and management for
+                        models on platforms like OnlyFans and other similar sites. We operate 24/7 chat services to ensure
+                        seamless communication and engagement with our models and their audiences.<br><br>
+                        At LustfulhavenMGMT, we believe in empowering our models through a robust referral program designed
+                        to attract new talent and expand our community. Join us to discover more about how we can help you
+                        thrive in the adult content industry.</p>
+                </div>
+            </div>
+    
+            <!-- Mission and Vision Section -->
+            <div class="mission-section">
+                <h2>MISSION AND VISION</h2>
+                <p>The primary mission of LustfulhavenMGMT is to create a safe and inclusive environment for adult content
+                    creators. The platform envisions a space where creators can express their artistry without fear of
+                    censorship or exploitation. By prioritizing the well-being and success of its members, LustfulhavenMGMT
+                    seeks to redefine the adult entertainment landscape.</p>
+            </div>
+        </section>
+    
+        <div class="careers-section">
+            <div class="careers-container">
+                <div class="careers-left">
+                    <h2>TAKE THE NEXT STEP</h2>
+                    <div class="white-line"></div>
+                    <p>Apply to speak with the OnlyFans management experts.</p>
+                </div>
+                <div class="careers-right">
+                    <h3>LIMITED TIME OFFER</h3>
+                    <hr class="light-grey-line">
+                    <h1 style="text-transform: uppercase;">Apply For Our OnlyFans Management Services</h1>
+                    <hr class="light-grey-line">
+                    <p>Submit your OnlyFans management talent application today! Our expert team will carefully review your
+                        application and reach out to schedule a call. Together, we’ll discuss your goals and create a
+                        personalized strategy to help you maximize your earnings and achieve success. Don’t wait—start your
+                        journey with us now!</p>
+                    <button class="careers-button">APPLY NOW</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Services Section -->
+        <div class="services-section">
+            <div class="services-inside">
+                <div class="services-container">
+                    <h2>OUR SERVICES</h2>
+                    <p>We provide a wide range of services to ensure your success:</p>
+                </div>
+                <div class="services-list">
+                    <div class="service">
+                        <h4>Content Management</h4>
+                        <hr class="service-line">
+                        <p>Tools for organizing and distributing content across multiple platforms.<br>Assistance with video
+                            editing, graphic design, and branding.</p>
+                    </div>
+                    <div class="service">
+                        <h4>Marketing and Promotion</h4>
+                        <hr class="service-line">
+                        <p>Strategies for increasing visibility and attracting a larger audience.<br>Social media management
+                            and advertising support.</p>
+                    </div>
+                    <div class="service">
+                        <h4>Financial Services</h4>
+                        <hr class="service-line">
+                        <p>Guidance on monetization strategies, including subscription models and pay-per-view
+                            options.<br>Assistance with financial planning and tax compliance.</p>
+                    </div>
+                    <div class="service">
+                        <h4>Legal Support</h4>
+                        <hr class="service-line">
+                        <p>Resources for understanding copyright, contracts, and industry regulations.<br>Access to legal
+                            professionals specializing in adult entertainment law.</p>
+                    </div>
+                    <div class="service">
+                        <h4>Community Building</h4>
+                        <hr class="service-line">
+                        <p>Opportunities for networking and collaboration among creators.<br>Forums and events to foster a
+                            sense of community and support.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="footer custom-footer">
+            <div class="container footer-container">
+                <div class="logo-footer">
+                    <img src="logo.svg" alt="Logo" class="footer-logo">
+                </div>
+        
+                <div class="footer-intro">
+                    <p class="footer-intro-description">We are LustfulhavenMGMT, your go-to platform for adult content
+                        management. Join our community and get the support you need to succeed in the industry.</p>
+                </div>
+        
+                <div class="contact footer-contact">
+                    <p class="contact-email"><strong>Email:</strong> support@lustfulhavenmgmt.com</p>
+                    <p class="contact-phone"><strong>Phone:</strong> +123 456 7890</p>
+        
+                    <div class="social-icons">
+                        <a href="https://www.tiktok.com/@lustfulhaven" class="social-icon" target="_blank">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                        <a href="https://www.threads.net/@lustfulhavenmgmt" class="social-icon" target="_blank">
+                            <i class="fa-brands fa-threads"></i>
+                        </a>
+                        <a href="https://www.instagram.com/lustfulhavenmgmt/" class="social-icon" target="_blank">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://t.me/LustfulhavenaMGMT" class="social-icon" target="_blank">
+                            <i class="fa-brands fa-telegram"></i>
+                        </a>
+                        <a href="https://x.com/lustfulhavenmg" class="social-icon" target="_blank">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+        
+                <div class="work-with-us">
+                    <button class="apply-button">APPLY NOW!</button>
+                </div>
+            </div>
+        </section>
+        
+        
+    </div>
+    
+    <script>
+        function verifyAge(isVerified) {
+            if (isVerified) {
+                localStorage.setItem("ageVerified", "true");
+                document.getElementById("ageModal").classList.add("hidden");
+                document.getElementById("content").classList.remove("hidden");
+            } else {
+                window.location.href = "https://www.google.com";
+            }
+        }
+
+        window.onload = function () {
+            if (localStorage.getItem("ageVerified") === "true") {
+                document.getElementById("ageModal").classList.add("hidden");
+                document.getElementById("content").classList.remove("hidden");
+            }
+        };
+    </script>
+
+       <!-- Font Awesome CDN for Icons -->
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
